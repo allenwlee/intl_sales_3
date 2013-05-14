@@ -1,0 +1,22 @@
+<div class="hero-unit">
+  <h2><%=current_user.id%></h2>
+  <h2>Current Sales</h2>
+  <table class="table table-striped">
+      <tr>
+        <th>Territory</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Sale</th>
+        <th>Sale Date</th>
+      </tr>
+      <% current_user.sales.each do |sale| %>
+      <tr>
+        <td><%= sale.territory %></td>
+        <td><%= sale.bid %></td>
+        <td><%= sale.ask %></td>
+        <td><%= sale.close %></td>
+        <td><%= sale.close_date %></td>
+      </tr>
+      <% end %>
+  </table>
+</div>
