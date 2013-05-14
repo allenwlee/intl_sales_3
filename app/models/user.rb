@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
-  def self.authenticate(username, password)
-    user = User.find_by_username(username)
+  def self.authenticate(email, password)
+    user = User.find_by_email(email)
     return nil unless user
     db_password = Password.new(user.password)
     db_password == password ? user : nil

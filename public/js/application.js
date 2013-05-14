@@ -1,7 +1,11 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+// $(document).ready(function() {
+//   $("create_event").on('click', function(e){
+//     e.preventDefault();
+//     $.ajax({
+//       type: "post",
+//       url: "/:id/event/create"
+//     });
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+//   });
+  
+// });
