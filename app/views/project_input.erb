@@ -1,7 +1,7 @@
 <div class="hero-unit">
   <h2>Enter Your Project Data Here</h2>
   <table class="table table-striped">
-    <form method="post" action="/user/:id/project">    
+    <form method="post" action="/user/<%=current_user.id %>/project/<%=@project.id %>/input">    
       <tr>
         <th>Project Title</th>
         <th>Genres</th>

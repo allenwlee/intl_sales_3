@@ -1,5 +1,5 @@
 <div class="hero-unit">
-  <h2><%=current_user.id%></h2>
+  <h2><%= current_user.username %></h2>
   <h2>All Projects</h2>
   <table class="table table-striped">
       <tr>
@@ -10,10 +10,10 @@
       </tr>
       <% @projects.each do |project| %>
       <tr>
-        <td><%= sale.territory %></td>
-        <td><%= sale.bid %></td>
-        <td><%= sale.ask %></td>
-        <td><%= sale.close %></td>
+        <td><%= project.title %></td>
+        <td><%= project.budget_size %></td>
+        <td><%= project.genres.map { |g| g.data }.join(',') %></td>
+        <td><a href="/user/<%= current_user.id %>/project/@project.id/sales%>"sales</a></td>
         <td><%= sale.close_date %></td>
       </tr>
       <% end %>
