@@ -1,22 +1,22 @@
 <div class="hero-unit">
-  
   <h2>All Sales</h2>
-  <table class="table table-striped">
-      <tr>
-        <th>Territory</th>
-        <th>Bid</th>
-        <th>Ask</th>
-        <th>Sale</th>
-        <th>Sale Date</th>
-      </tr>
-      <% Sale.all.each do |sale| %>
-      <tr>
-        <td><%= sale.territory %></td>
-        <td><%= sale.bid %></td>
-        <td><%= sale.ask %></td>
-        <td><%= sale.close %></td>
-        <td><%= sale.close_date %></td>
-      </tr>
-      <% end %>
-  </table>
+</div>
+<table class="table table-striped">
+    <tr>
+      <th>Territory</th>
+      <th>Bid</th>
+      <th>Ask</th>
+      <th>Sale</th>
+      <th>Sale Date</th>
+    </tr>
+    <% Sale.all.each do |sale| %>
+    <tr>
+      <td><%= sale.territory.territory_histories.last.data %></td>
+      <td>$<%= sale.bid.bid_histories.last.data %></td>
+      <td>$<%= sale.ask.ask_histories.last.data %></td>
+      <td>$<%= sale.close.close_histories.last.data %></td>
+      <td><%= sale.close_date.close_date_histories.last.data %></td>
+    </tr>
+    <% end %>
+</table>
 </div>
