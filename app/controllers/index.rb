@@ -1,5 +1,5 @@
 get '/' do
-  erb :index
+  erb :sales
 end
 
 get '/sales/create' do
@@ -49,7 +49,7 @@ end
 
 post '/profile' do
   @user = User.find_by_email(params[:email])
-  @user.authenticate(params[:email], params[:password])
+  User.authenticate(params[:email], params[:password])
   session[:user_id] = @user.id 
   erb :profile
 end
