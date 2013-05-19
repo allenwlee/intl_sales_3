@@ -1,25 +1,33 @@
-# User.create(email: "allenwlee@yahoo.com", password: 'password')
+User.create(email: "allenwlee@yahoo.com", password: 'password', username: 'allenwlee', type: "pro")
 
-# Sale.create(user_id: 1)
 
-# User.find(1).sales.first
+genres = %w(Horror Comedy Romance Thriller Action Adventure Drama)
+genres.each do |g|
+  Genre.create(data: g)
+end
 
-# Territory.create(sale_id: 1)
+Project.create(user_id: 1, title: "The Deadly Hacker Attack", budget_size: 10_000_000)
+Project.find(1).genres << Genre.find(1)
+Project.find(1).genres << Genre.find(2)
 
-# TerritoryHistory.create(territory_id: 1, data: "USA")
+Sale.create(project_id: 1)
 
-# Bid.create(sale_id: 1)
+Territory.create(sale_id: 1)
 
-# BidHistory.create(bid_id: 1, data: 50)
+TerritoryHistory.create(territory_id: 1, data: "USA")
 
-# Ask.create(sale_id: 1)
+Bid.create(sale_id: 1)
 
-# AskHistory.create(ask_id: 1, data: 100)
+BidHistory.create(bid_id: 1, data: 50)
 
-# Close.create(sale_id: 1)
+Ask.create(sale_id: 1)
 
-# CloseHistory.create(close_id: 1, data: 75)
+AskHistory.create(ask_id: 1, data: 100)
 
-# CloseDate.create(sale_id: 1)
+Close.create(sale_id: 1)
+
+CloseHistory.create(close_id: 1, data: 75)
+
+CloseDate.create(sale_id: 1)
 
 CloseDateHistory.create(close_date_id: 1, data: DateTime.now)
