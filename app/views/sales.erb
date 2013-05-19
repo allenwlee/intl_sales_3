@@ -13,7 +13,7 @@
     </tr>
     <% Sale.all.each do |sale| %>
     <tr>
-      <td><%= Project.find(sale.project_id).budget_size %></td>
+      <td>$<%= Project.find(sale.project_id).budget_size %></td>
       <td><%= Project.find(sale.project_id).genres.map { |g|  g.data }.join(', ') %></td>
       <td><%= sale.territory.territory_histories.last.data %></td>
       <td>$<%= sale.bid.bid_histories.last.data %></td>
