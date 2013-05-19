@@ -32,9 +32,12 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="407" y="9" name="users">
+</datatypes><table x="43" y="10" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="username" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="email" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -42,11 +45,14 @@
 <row name="password" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="type" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="229" y="401" name="bid_history">
+<table x="238" y="519" name="bid_history">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -54,14 +60,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="bids" row="id" />
 </row>
-<row name="bid" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="data" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="433" y="259" name="asks">
+<table x="435" y="380" name="asks">
 <row name="sale_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sales" row="id" />
@@ -73,10 +79,10 @@
 <part>id</part>
 </key>
 </table>
-<table x="406" y="135" name="sales">
-<row name="user_id" null="1" autoincrement="0">
+<table x="432" y="251" name="sales">
+<row name="project_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
+<default>NULL</default><relation table="projects" row="id" />
 </row>
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
@@ -85,7 +91,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="851" y="253" name="close_dates">
+<table x="851" y="357" name="close_dates">
 <row name="sale_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sales" row="id" />
@@ -97,7 +103,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="57" y="244" name="territories">
+<table x="51" y="380" name="territories">
 <row name="sale_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sales" row="id" />
@@ -109,7 +115,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="652" y="256" name="closes">
+<table x="646" y="381" name="closes">
 <row name="sale_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sales" row="id" />
@@ -121,7 +127,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="253" y="264" name="bids">
+<table x="262" y="382" name="bids">
 <row name="sale_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sales" row="id" />
@@ -133,7 +139,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="401" y="402" name="ask_history">
+<table x="406" y="520" name="ask_history">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -141,14 +147,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="asks" row="id" />
 </row>
-<row name="ask" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="data" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="621" y="397" name="close_history">
+<table x="610" y="524" name="close_history">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -156,14 +162,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="closes" row="id" />
 </row>
-<row name="close" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="data" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="826" y="396" name="close_date_history">
+<table x="818" y="526" name="close_date_history">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -171,14 +177,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="close_dates" row="id" />
 </row>
-<row name="close_date" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="data" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="29" y="413" name="territory_history">
+<table x="26" y="513" name="territory_history">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -186,7 +192,43 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="territories" row="id" />
 </row>
-<row name="territory" null="1" autoincrement="0">
+<row name="data" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="238" y="145" name="projects">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="genre_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="genres" row="id" />
+</row>
+<row name="title" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="budget_size" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="verified" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="38" y="167" name="genres">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="data" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">

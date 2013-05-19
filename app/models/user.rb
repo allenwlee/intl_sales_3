@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :sales
+  has_many :projects
   before_create :hash_password
 
   include BCrypt
