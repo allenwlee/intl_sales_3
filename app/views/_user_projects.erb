@@ -1,5 +1,5 @@
 <div class="hero-unit">
-  <h2><%= current_user.username %></h2>
+  <small><%= current_user.username %></small>
   <h2>all your projects</h2>
   <table class="table">
       <tr>
@@ -10,7 +10,7 @@
         <th></th>
       <tr>
         <form id="horizontal-create-project" method="post" action="/user/<%=current_user.id%>/project/create">
-          <td id="add-title"><input type="text" placeholder="add a new title" name="title"></td>
+          <td id="add-title"><input type="text" placeholder="Click to add new" name="title"></td>
           <td class="hidden"><input type="text" placeholder="budget" name="budget"></td>
           <td class="hidden"><input type="text" placeholder="genres" name="genres"></td>
           <td></td>
@@ -21,7 +21,7 @@
       <% current_user.projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
-        <td>$<%= project.budget_size %></td>
+        <td><%= currency(project.budget_size) %></td>
         <td><%= project.genres.map { |g| g.data }.join(', ') %></td>
         <td><a href="/user/<%= current_user.id %>/project/@project.id/sale/all">Sales</a></td>
         <td>edit</td>

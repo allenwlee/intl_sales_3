@@ -10,7 +10,7 @@
     <% Project.all.each do |project| %>
     <tr>
       <td><em>Private</em></td>
-      <td>$<%= project.budget_size %></td>
+      <td><%= currency(project.budget_size) %></td>
       <td><%= project.genres.map { |g| g.data }.join(', ') %></td>
     </tr>
     <% end %>

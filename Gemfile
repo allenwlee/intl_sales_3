@@ -20,6 +20,7 @@ gem 'shotgun'
 gem 'bcrypt-ruby'
 
 # gem "sinatra-support", require: "sinatra/support"
+# gem "actionpack"
 
 group :test do
   gem 'faker'

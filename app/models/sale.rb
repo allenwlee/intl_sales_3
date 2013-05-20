@@ -1,6 +1,6 @@
 class Sale < ActiveRecord::Base
   belongs_to :project
-  has_one :territory
+  has_many :territory
   has_one :bid
   has_one :ask
   has_one :close
