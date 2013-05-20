@@ -1,0 +1,24 @@
+<h2>All Sales</h2>
+
+<table class="table table-striped">
+    <tr>
+      <th>Budget</th>  
+      <th>Genre</th>
+      <th>Territory</th>
+      <th>Bid</th>
+      <th>Ask</th>
+      <th>Sale</th>
+      <th>Sale Date</th>
+    </tr>
+    <% Sale.all.each do |sale| %>
+    <tr>
+      <td>$<%= Project.find(sale.project_id).budget_size %></td>
+      <td><%= Project.find(sale.project_id).genres.map { |g|  g.data }.join(', ') %></td>
+      <td><%= sale.territory.territory_histories.last.data %></td>
+      <td>$<%= sale.bid.bid_histories.last.data %></td>
+      <td>$<%= sale.ask.ask_histories.last.data %></td>
+      <td>$<%= sale.close.close_histories.last.data %></td>
+      <td><%= sale.close_date.close_date_histories.last.data %></td>
+    </tr>
+    <% end %>
+</table>

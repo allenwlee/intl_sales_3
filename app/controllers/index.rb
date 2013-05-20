@@ -1,5 +1,5 @@
 get '/' do
-  erb :sales
+  erb :index
 end
 
 
@@ -7,10 +7,9 @@ get '/login' do
   erb :login
 end
 
-
-post '/user/login' do
+post '/login' do
   if @user = User.authenticate(params[:email], params[:password])
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     erb :profile
   else
     @error_message = "Wrong login or password"
@@ -18,26 +17,20 @@ post '/user/login' do
   end
 end
 
-get 'user/:id/sales/create' do
-  if session[:user_id]
-    erb :sales_input
-  else
-    erb :no_permission
-  end
-end
-
-
-get '/create' do
-  erb :create
+get '/user/profile' do
+  erb :profile
 end
 
 get '/login' do
   erb :login
 end
 
+get '/user/create' do
+  erb :user_create
+end
 
 post '/user/create' do
-  @user = User.new(email: params[:email], password: params[:password])
+  @user = User.new(email: params[:email], password: params[:password], username: params[:username])
   @user.save!
   session[:user_id] = @user.id 
   erb :profile
@@ -49,6 +42,3 @@ get '/logout' do
 end
 
 
-get 'user/:id/sales' do
-  erb :sales_output
-end

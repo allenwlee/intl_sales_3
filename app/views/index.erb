@@ -1,8 +1,10 @@
 <div class="hero-unit">
-  <h1>Online International Sales Sheet</h1>
-  <button id="create" class="btn"><a href="/create">Create an Account</a></button>
-  <button id="login" class="btn"><a href="/login">Login</a></button>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= erb :_projects, :layout => false %>  
+    </div>
+    <div class="span6">
+      <%= erb :_sales, :layout => false %>  
+    </div>
+  </div>
 </div>
-
-
-  

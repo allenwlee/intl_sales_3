@@ -1,21 +1,9 @@
 <div class="hero-unit">
   <h2><%= current_user.username %></h2>
-  <h2>All Projects</h2>
-  <table class="table table-striped">
-      <tr>
-        <th>Title</th>
-        <th>Budget</th>
-        <th>Genres</th>
-        <th>Sale</th>
-      </tr>
-      <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.budget_size %></td>
-        <td><%= project.genres.map { |g| g.data }.join(',') %></td>
-        <td><a href="/user/<%= current_user.id %>/project/@project.id/sales%>"sales</a></td>
-        <td><%= sale.close_date %></td>
-      </tr>
-      <% end %>
-  </table>
+  <h2><%= @project.title %></h2>
+  <ul>
+    <li>Title: <%= @project.title %></li>
+    <li>Budget: $<%= @project.budget_size %></li>
+    <li>Genres: <%= @project.genres.map { |g| g.data }.join(',') %></li>
+  </ul>
 </div>

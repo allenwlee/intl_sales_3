@@ -19,6 +19,8 @@ gem 'shotgun'
 
 gem 'bcrypt-ruby'
 
+# gem "sinatra-support", require: "sinatra/support"
+
 group :test do
   gem 'faker'
   # gem 'rspec'

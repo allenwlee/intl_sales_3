@@ -1,11 +1,7 @@
-// $(document).ready(function() {
-//   $("create_event").on('click', function(e){
-//     e.preventDefault();
-//     $.ajax({
-//       type: "post",
-//       url: "/:id/event/create"
-//     });
-
-//   });
+$(document).ready(function() {
+  $("#add-title").keyup(function() {
+    console.log($(this).next());
+    $(this).parent().children().removeClass("hidden");
   
-// });
+  });
+});

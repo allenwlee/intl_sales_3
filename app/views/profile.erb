@@ -1,11 +1,16 @@
-<div class="hero-unit">
-  <h1>Your Profile</h1>
-  <p>current user ID: <%=current_user.id %></p>
-  <p>Session ID: <%=session[:user_id] %></p>
-  <p>User ID: <%=current_user.id %></p>
-  <p>Your email: <%=current_user.email %></p>
-  <button id="create" class="btn"><a href="/sales/create">Create a Sale</a></button>
-  <button id="sales" class="btn"><a href="/sales">See Your Sales</a></button>
+<div class="row-fluid">
+  <div class="span3">
+    <div class="hero-unit">
+      <h3>your profile</h3>
+      <p>current user ID: <%=current_user.id %></p>
+      <p>Session ID: <%=session[:user_id] %></p>
+      <p>User ID: <%=current_user.id %></p>
+      <p>Your email: <%=current_user.email %></p>
+    </div>
+  </div>
+  <div class="span9">
+    <% if current_user.projects %>
+      <%= erb :_user_projects, :layout => false %>  
+    <% end %>
+  </div>
 </div>
-
-  

@@ -1,12 +1,19 @@
-<div class="navbar navbar-inverse">
-  <ul class="nav">
-    <li><a href="/">Home</a></li>
-    <li><a href="user/create">Create Account</a></li>
-    <li><a href="/login">Login</a></li>
-    <% if @current_user %>
-      <li><a href="/logout">Logout</a></li>
-      <li><a href="/user/<%=current_user.id%>/project/create">Start a Film Project</a></li>
-      <li><a href="/user/<%=current_user.id%>/profile">Welcome <%= current_user.username %>!</a></li>
-    <% end %>
-  </ul>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <ul class="nav">
+  
+        <li><a href="/">home</a></li>
+        <li><a href="user/create">create account</a></li>
+        <li><a href="/login">login</a></li>
+        <% if @current_user %>
+          <li><a href="/logout">logout</a></li>
+          <li><a href="/user/<%=current_user.id%>/project/create">start a film project</a></li>
+          <li><a href="/user/profile">welcome <%= @current_user.username %>!</a></li>
+        <% end %>
+  
+    </ul>
+  </div>
 </div>
+
+
+
