@@ -1,3 +1,3 @@
 class AskHistory < ActiveRecord::Base
-  belongs_to :ask
+  belongs_to :sale
 end

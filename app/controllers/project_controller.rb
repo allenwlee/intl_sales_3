@@ -3,8 +3,6 @@ get '/user/:user_id/project/all' do
   erb :user_projects
 end
 
-
-
 post 'user/:user_id/project/:project_id/sale_output' do
   @user = User.find(session[:user_id])
   @sale = Sale.create(territory: params[:territory], bid: params[:bid], ask: params[:ask], close: params[:close], close_date: params[:close_date])

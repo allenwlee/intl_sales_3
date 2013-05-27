@@ -1,3 +1,3 @@
 class CloseHistory < ActiveRecord::Base
-  belongs_to :close
+  belongs_to :sale
 end

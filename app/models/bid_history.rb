@@ -1,3 +1,3 @@
 class BidHistory < ActiveRecord::Base
-  belongs_to :bid_history
+  belongs_to :sale
 end

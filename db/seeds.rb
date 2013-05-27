@@ -10,24 +10,17 @@ Project.create(user_id: 1, title: "The Deadly Hacker Attack", budget_size: 10_00
 Project.find(1).genres << Genre.find(1)
 Project.find(1).genres << Genre.find(2)
 
-Sale.create(project_id: 1)
+Sale.create(project_id: 1, territory: 'USA', ask: 1000, bid: 800, close: 650, close_date: Time.now)
 
-Territory.create(sale_id: 1)
+TerritoryHistory.create(sale_id: 1, data: 'USA')
 
-TerritoryHistory.create(territory_id: 1, data: "USA")
+BidHistory.create(sale_id: 1, data: 800)
 
-Bid.create(sale_id: 1)
+AskHistory.create(sale_id: 1, data: 1000)
 
-BidHistory.create(bid_id: 1, data: 50)
+CloseHistory.create(sale_id: 1, data: 650)
 
-Ask.create(sale_id: 1)
+CloseDateHistory.create(sale_id: 1, data: DateTime.now)
 
-AskHistory.create(ask_id: 1, data: 100)
+Sale.find(1).update_attributes(ask: 900, bid: 850, close: 500, close_date: Time.now)
 
-Close.create(sale_id: 1)
-
-CloseHistory.create(close_id: 1, data: 75)
-
-CloseDate.create(sale_id: 1)
-
-CloseDateHistory.create(close_date_id: 1, data: DateTime.now)
