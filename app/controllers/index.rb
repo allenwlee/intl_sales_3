@@ -30,7 +30,7 @@ get '/user/create' do
 end
 
 post '/user/create' do
-  @user = User.new(email: params[:email], password: params[:password], username: params[:username])
+  @user = User.new(params[:user])
   @user.save!
   session[:user_id] = @user.id 
   erb :profile

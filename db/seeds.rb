@@ -1,26 +1,39 @@
 User.create(email: "allenwlee@yahoo.com", password: 'password', username: 'allenwlee', type: "pro")
 
-
 genres = %w(Horror Comedy Romance Thriller Action Adventure Drama)
 genres.each do |g|
   Genre.create(data: g)
 end
 
+territories = []
+CSV.foreach('territories.csv') do |row|
+  territories << row[0]
+end
+
+territories.each do |t|
+  Territory.create(name: t)
+end
+
+media = []
+CSV.foreach('media.csv') do |medium|
+  medium << row[0]
+end
+
+media.each do |m|
+  Medium.create(name: m)
+end
+
+
 Project.create(user_id: 1, title: "The Deadly Hacker Attack", budget_size: 10_000_000)
-Project.find(1).genres << Genre.find(1)
-Project.find(1).genres << Genre.find(2)
+Project.find(1).genres << Genre.find(rand(5))
+Project.find(1).genres << Genre.find(rand(5))
 
-Sale.create(project_id: 1, territory: 'USA', ask: 1000, bid: 800, close: 650, close_date: Time.now)
+Sale.create(project_id: 1, ask: 300_000, bid: 200_000, close: 250_000, close_date: Time.now)
 
-TerritoryHistory.create(sale_id: 1, data: 'USA')
+Sale.create(project_id: 1, ask: 1_800_000, bid: 1_600_000, close: 1_750_000, close_date: Time.now)
 
-BidHistory.create(sale_id: 1, data: 800)
+Sale.find(1).territories << Territory.find(rand(50))
+Sale.find(1).territories << Territory.find(rand(50))
 
-AskHistory.create(sale_id: 1, data: 1000)
-
-CloseHistory.create(sale_id: 1, data: 650)
-
-CloseDateHistory.create(sale_id: 1, data: DateTime.now)
-
-Sale.find(1).update_attributes(ask: 900, bid: 850, close: 500, close_date: Time.now)
-
+Sale.find(1).territories << Territory.find(rand(50))
+Sale.find(1).territories << Territory.find(rand(50))
