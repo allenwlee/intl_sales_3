@@ -14,5 +14,12 @@ helpers do
     
   end
 
+  def save_history(sale)
+    BidHistory.create(data: sale.bid, sale_id: sale.id)
+    AskHistory.create(data: sale.ask, sale_id: sale.id)
+    CloseHistory.create(data: sale.close, sale_id: sale.id)
+    CloseDateHistory.create(data: sale.close_date, sale_id: sale.id)
+  end
+
 end
 

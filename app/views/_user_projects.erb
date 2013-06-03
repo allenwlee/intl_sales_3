@@ -23,7 +23,7 @@
         <td><%= project.title %></td>
         <td><%= currency(project.budget_size) %></td>
         <td><%= project.genres.map { |g| g.data }.join(', ') %></td>
-        <td><a href="/user/<%= current_user.id %>/project/@project.id/sale/all">Sales</a></td>
+        <td><a href="/user/<%= current_user.id %>/project/<%= project.id %>/sale/all">Sales</a></td>
         <td>edit</td>
       </tr>
       <% end %>

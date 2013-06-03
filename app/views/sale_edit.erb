@@ -1,0 +1,46 @@
+<div class="hero-unit">
+  <h2>Update Your Sales Data Here</h2>
+  <table class="table table-striped">
+    <form method="post" action="/user/<%= @user.id %>/project/<%= @project.id %>/sale/<%= @sale.id %>/edit">    
+      <tr>
+        <th>Territories</th>
+        <th>Media</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Sale</th>
+        <th>Sale Date</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="inputTerritory"value="<%= @sale.territories.map {|t| t.name }.join(', ') %>" name="territory"></td>
+        <td><input type="text" id="inputTerritory" value="<%= @sale.media.map {|m| m.name }.join(', ') %>" name="media"></td>
+        <td>
+          <div class="input-prepend input-append">
+            <span class="add-on">$</span>
+            <input class="span2" id="appendedPrependedInput" type="text" value=<%= @sale.bid %> name="sale[bid]">
+            <span class="add-on">.00</span>
+          </div>
+        </td>
+        
+        <td>
+          <div class="input-prepend input-append">
+            <span class="add-on">$</span>
+            <input class="span2" id="appendedPrependedInput" type="text" value=<%= @sale.ask %> name="sale[ask]">
+            <span class="add-on">.00</span>
+          </div>
+        </td>
+        
+        <td>
+          <div class="input-prepend input-append">
+            <span class="add-on">$</span>
+            <input class="span2" id="appendedPrependedInput" type="text" name="sale[close]" value=<%= @sale.close %>>
+            <span class="add-on">.00</span>
+          </div>
+          </td>
+        <td><input type="date" id="inputCloseDate" value=<%= @sale.close_date %> name="sale[close_date]"></td>
+      </tr>
+      <tr>
+        <td><button id="submit" type="submit" class="btn">Update</button></td>
+      </tr>
+    </form>
+  </table>
+</div>

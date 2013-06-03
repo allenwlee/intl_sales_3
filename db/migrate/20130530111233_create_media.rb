@@ -1,8 +1,8 @@
 class CreateMedia < ActiveRecord::Migration
   def change
     create_table :media do |t|
-      t.string :type
-      t.integer :sales_id
+      t.string :name
+      t.integer :sale_id
     end
   end
 end

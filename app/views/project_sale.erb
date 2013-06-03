@@ -1,0 +1,39 @@
+<div class="hero-unit">
+  <h2>'<%= @project.title %>'</h2>
+  <h3>All Sales</h3>
+  <table class="table table-striped">
+      <tr>
+        <th>Territories</th>
+        <th>Media</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Sale</th>
+        <th>Sale Date</th>
+        <th>Create/Edit</th>
+        <th>Get History</th>
+      </tr>
+      <tr>
+        <form id="horizontal-create-project" method="post" action="/user/<%=current_user.id%>/project/<%=@project.id%>/sale/create">
+          <td id="add-sale"><input type="text" placeholder="Click to add new sale" name="territories"></td>
+          <td class="hidden"><input type="text" placeholder="media" name="media"></td> 
+          <td class="hidden"><input type="text" placeholder="bid" name="sale[bid]"></td>
+          <td class="hidden"><input type="number" placeholder="ask" name="sale[ask]"></td>
+          <td class="hidden"><input type="number" placeholder="close" name="sale[close]"></td>
+          <td class="hidden"><input type="date" placeholder="close date" name="sale[close_date]"></td>
+          <td class="hidden"><input type="submit" value="create"></td>
+        </form>
+      </tr>
+      <% @project.sales.each do |sale| %>
+      <tr>
+        
+        <td class="editTerritories"><%= sale.territories.map { |t| t.name }.join(', ') %></td>
+        <td class="editMedia"><%= sale.media.map { |m| m.name }.join(', ') %></td>
+        <td class="editBid"><%= currency(sale.bid) %></td>
+        <td class="editAsk"><%= currency(sale.ask) %></td>
+        <td class="editClose"><%= currency(sale.close) %></td>
+        <td class="editCloseDate"><%= sale.close_date %></td>
+        <td><a href="/user/<%= sale.project.user.id %>/project/<%= sale.project.id %>/sale/<%=sale.id %>/edit">Edit</a></td>
+      </tr>
+      <% end %>
+  </table>
+</div>

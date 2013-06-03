@@ -7,7 +7,6 @@
   display: none;
 }
 
-.currency {
+td .currency {
   text-align: right;
 }
-
