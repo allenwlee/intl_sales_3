@@ -8,8 +8,9 @@ get '/login' do
 end
 
 post '/login' do
-  if @user = User.authenticate(params[:email], params[:password])
+  if @user = User.authenticate(params[:username], params[:password])
     session[:user_id] = @user.id
+    current_user
     erb :profile
   else
     @error_message = "Wrong login or password"
