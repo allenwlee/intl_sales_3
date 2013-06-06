@@ -1,6 +1,7 @@
 $(document).ready(function() {
+  console.log($(this).next());
   $("#add-title").mousedown(function() {
-    console.log($(this).next());
+    
     $(this).parent().children().removeClass("hidden");
   });
 
